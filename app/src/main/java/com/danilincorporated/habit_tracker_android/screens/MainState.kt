@@ -1,0 +1,3 @@
+package com.danilincorporated.habit_tracker_android.screens
+
+class MainState
