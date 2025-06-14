@@ -6,7 +6,6 @@ import com.danilincorporated.habit_tracker_android.alert.Message
 import com.danilincorporated.habit_tracker_android.common.exception.NetworkAbsenceException
 import com.danilincorporated.habit_tracker_android.extension.toButtonData
 import com.danilincorporated.habit_tracker_android.extension.toTextData
-import com.danilincorporated.habit_tracker_android.localization.StringReceiver
 import com.danilincorporated.habit_tracker_android.model.Alert
 import com.danilincorporated.habit_tracker_android.model.AlertData
 import kotlinx.collections.immutable.persistentListOf
@@ -22,7 +21,7 @@ import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
 abstract class BaseViewModel(
-    private val stringReceiver: StringReceiver
+//    private val stringReceiver: StringReceiver
 ): ViewModel() {
     private val _loadingSet = MutableStateFlow<Set<String>>(emptySet())
     val loading = _loadingSet.map { it.isNotEmpty() }
@@ -105,11 +104,11 @@ abstract class BaseViewModel(
         buttonPlaceHolder: String
     ) {
         val data = AlertData(
-            title = stringReceiver.getString(titlePlaceHolder).toTextData(),
-            subtitle = stringReceiver.getString(messagePlaceHolder).toTextData(),
+            title = "".toTextData(),
+            subtitle ="".toTextData(),
             buttons = persistentListOf(
                 AlertData.Button(
-                    data = stringReceiver.getString(buttonPlaceHolder).toButtonData(),
+                    data = (buttonPlaceHolder).toButtonData(),
                     action = Message.Cancel,
                     type = AlertData.Button.ButtonType.Outlined
                 )

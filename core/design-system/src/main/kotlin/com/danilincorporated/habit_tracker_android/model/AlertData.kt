@@ -13,7 +13,7 @@ data class AlertData(
 ) {
     data class TextField(
         val type: TextFieldType,
-        val data: TextFieldData,
+//        val data: TextFieldData,
         val inputType: InputType,
     ) {
         interface TextFieldType

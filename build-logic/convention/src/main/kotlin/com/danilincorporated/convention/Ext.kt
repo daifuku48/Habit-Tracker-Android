@@ -30,7 +30,6 @@ internal fun Project.configureAndroidCompose(commonExtension: CommonExtension<*,
         buildFeatures {
             compose = true
         }
-
         dependencies {
             add("implementation", platform(libs.findLibrary("androidx-compose-bom").get()))
             add("implementation", libs.findLibrary("androidx-ui-tooling-preview").get())

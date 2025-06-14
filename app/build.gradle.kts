@@ -7,12 +7,10 @@ plugins {
 
 android {
     namespace = "com.danilincorporated.habit_tracker_android"
-    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.danilincorporated.habit_tracker_android"
-        minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -28,16 +26,6 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-    buildFeatures {
-        compose = true
-    }
 
     buildOutputs.all {
         val outputImpl = this as? ApkVariantOutputImpl
@@ -49,12 +37,18 @@ android {
 }
 
 dependencies {
+    implementation(projects.feature.splash)
+    implementation(projects.feature.auth)
+
     implementation(projects.core.designSystem)
     implementation(projects.core.architecture)
     implementation(projects.core.domain)
     implementation(libs.kotlinx.collections.immutable)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+    implementation(libs.kotlinx.serialization.core)
     implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.navigation3.ui.android)
 }

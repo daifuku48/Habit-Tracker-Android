@@ -1,9 +1,9 @@
 [versions]
-compile-sdk = "35"
-target-sdk = "35"
-min-sdk = "28"
-agp = "8.9.1"
-kotlin = "2.0.20"
+compile-sdk = "36"
+target-sdk = "36"
+min-sdk = "26"
+agp = "8.9.3"
+kotlin = "2.1.20"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 coroutines = "1.9.0"
@@ -16,8 +16,7 @@ composeBom = "2024.09.00"
 ksp = "2.1.20-1.0.32"
 hilt = "2.56.2"
 coil = "3.1.0"
-navigationCompose = "2.8.9"
-room = "2.7.0"
+room = "2.7.1"
 retrofit = "2.11.0"
 okhttp-logging-interceptor = "5.0.0-alpha.14"
 kotlinx-collections-immutable = "0.3.8"
@@ -25,12 +24,21 @@ desugaring = "2.1.5"
 detekt = "1.23.7"
 hiltNavigationCompose = "1.2.0"
 inject = "1"
-chucker = "4.0.0"
-serialization = "1.7.1"
+chucker = "4.1.0"
+serialization = "1.8.1"
+nav3Core = "1.0.0-alpha03"
+material3AdaptiveNav3 = "1.0.0-SNAPSHOT"
+lifecycleViewmodelNav3 = "1.0.0-alpha01"
+navigation3UiAndroid = "1.0.0-alpha03"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+
+androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav3Core" }
+androidx-navigation3 = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav3Core" }
+androidx-lifecycle-viewmodel-navigation3 = { module = "androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "lifecycleViewmodelNav3" }
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
+
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -96,6 +104,7 @@ android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", ve
 android-tools-common = { group = "com.android.tools", name = "common", version.ref = "agp" }
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "symbol-processing-gradle-plugin", version.ref = "ksp" }
+androidx-navigation3-ui-android = { group = "androidx.navigation3", name = "navigation3-ui-android", version.ref = "navigation3UiAndroid" }
 
 
 [plugins]

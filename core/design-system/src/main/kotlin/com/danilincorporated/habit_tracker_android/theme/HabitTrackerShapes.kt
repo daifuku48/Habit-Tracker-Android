@@ -6,6 +6,7 @@ import androidx.compose.ui.unit.dp
 
 data class HabitTrackerShapes(
     val small: RoundedCornerShape = RoundedCornerShape(10.dp),
+    val enormous: RoundedCornerShape = RoundedCornerShape(60.dp),
 )
 
 val LocalHabitTrackerSpaces = staticCompositionLocalOf {

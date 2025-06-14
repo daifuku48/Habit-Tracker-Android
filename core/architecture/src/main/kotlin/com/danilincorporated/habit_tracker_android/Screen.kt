@@ -5,7 +5,6 @@ import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -56,9 +55,9 @@ inline fun<reified VM: BaseViewModel> ScreenContent(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(FrekuentTheme.colors.white.copy(alpha = 0.5f))
-                    .clickableNoRipple { },
-                contentAlignment = Alignment.Center,
+//                    .background(FrekuentTheme.colors.white.copy(alpha = 0.5f))
+//                    .clickableNoRipple { },
+//                contentAlignment = Alignment.Center,
             ) {
                 CircularProgressIndicator(
                     modifier = Modifier
@@ -66,7 +65,7 @@ inline fun<reified VM: BaseViewModel> ScreenContent(
                         .align(Alignment.Center),
                     strokeWidth = 4.dp,
                     strokeCap = StrokeCap.Round,
-                    color = FrekuentTheme.colors.purple
+//                    color = FrekuentTheme.colors.purple
                 )
             }
         }
@@ -79,34 +78,34 @@ inline fun<reified VM: BaseViewModel> ScreenContent(
             label = ""
         ) {
             val alert = alert ?: latestSavedAlert
-            FrekuentAlert(
-                modifier = Modifier.fillMaxSize(),
-                alertData = alert.data,
-                onAction = { action -> viewModel.onAlertClick(alert.type, action) },
-                onDismiss = { viewModel.onAlertCancel(alert.type) },
-                onTextChanged = { type, text -> viewModel.changeAlertTextFieldValue(type, text) }
-            )
+//            FrekuentAlert(
+//                modifier = Modifier.fillMaxSize(),
+//                alertData = alert.data,
+//                onAction = { action -> viewModel.onAlertClick(alert.type, action) },
+//                onDismiss = { viewModel.onAlertCancel(alert.type) },
+//                onTextChanged = { type, text -> viewModel.changeAlertTextFieldValue(type, text) }
+//            )
         }
 
         AnimatedVisibility(
             modifier = Modifier.fillMaxSize(),
-            visible = blockingScreen != null,
+            visible = false,
             enter = fadeIn(),
             exit = fadeOut(),
             label = ""
         ) {
-            val blockingScreen = blockingScreen ?: latestSavedBlockingScreen
-            FrekuentBlockingScreen(
-                data = blockingScreen,
-                onRetry = { viewModel.onBlockingRetry(blockingScreen.actionId) }
-            )
+//            val blockingScreen = blockingScreen ?: latestSavedBlockingScreen
+//            FrekuentBlockingScreen(
+//                data = blockingScreen,
+//                onRetry = { viewModel.onBlockingRetry(blockingScreen.actionId) }
+//            )
         }
     }
 
     OnBackEventListener(
         onBack = {
             if (alert?.data?.canBeDismissed?.not() == true) return@OnBackEventListener
-            viewModel.onAlertCancel(alert?.type ?: return@OnBackEventListener)
+//            viewModel.onAlertCancel(alert?.type ?: return@OnBackEventListener)
         },
         disableSystemBackPressed = isSystemBackDisabled,
     )

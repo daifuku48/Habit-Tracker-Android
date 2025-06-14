@@ -36,3 +36,4 @@ include(":core:network")
 
 include("feature:auth")
 include(":core:utils")
+include(":feature:splash")
